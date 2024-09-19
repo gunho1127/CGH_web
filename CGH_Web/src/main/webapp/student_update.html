@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 정보 수정</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
-
+    <header>
+        <nav>
+            <ul>
+                <li><a href="student_insert.html">학생 등록</a></li>
+                <li><a href="listStudents.do">전체 학생 목록</a></li>
+                <li><a href="student_search.html">학생 조회</a></li>
+                <li><a href="student_update.html">학생 정보 수정</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>학생 정보 수정</h1>
+            <form action="/updateStudent.do" method="post">
+                <label for="student_id">학번:</label>
+                <input type="text" id="student_id" name="student_id" required>
+                
+                <label for="department">새 학과:</label>
+                <input type="text" id="department" name="department" required>
+                
+                <label for="phone">새 전화번호:</label>
+                <input type="text" id="phone" name="phone" required>
+                
+                <button type="submit">수정</button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
