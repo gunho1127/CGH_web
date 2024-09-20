@@ -12,10 +12,10 @@ import java.util.List;
 public class StudentDAO {
 
     // SQL 명령어
-    private static final String STUDENT_INSERT = "INSERT INTO STUDENTS (studentid, name, major, phonenumber) VALUES (?, ?, ?, ?)";
-    private static final String STUDENT_LIST = "SELECT * FROM STUDENTS";
-    private static final String STUDENT_GET = "SELECT * FROM STUDENTS WHERE studentid = ?";
-    private static final String STUDENT_UPDATE = "UPDATE STUDENTS SET major = ?, phonenumber = ? WHERE studentid = ?";
+    private static final String STUDENT_INSERT = "INSERT INTO STUDENT (studentid, name, major, phonenumber) VALUES (?, ?, ?, ?)";
+    private static final String STUDENT_LIST = "SELECT * FROM STUDENT";
+    private static final String STUDENT_GET = "SELECT * FROM STUDENT WHERE studentid = ?";
+    private static final String STUDENT_UPDATE = "UPDATE STUDENT SET major = ?, phonenumber = ? WHERE studentid = ?";
 
     // 학생 등록 메서드
     public void insertStudent(StudentVO student) {

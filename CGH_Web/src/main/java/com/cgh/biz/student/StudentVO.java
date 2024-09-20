@@ -10,3 +10,4 @@ public class StudentVO {
 	private String major; // 전공 
 	private String phonenumber; // 전화번호 
 }
+
