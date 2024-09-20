@@ -11,20 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/searchStudent.do")
+/**
+ * 학생 정보를 조회하는 서블릿
+ */
+@WebServlet("/searchStudent.do") // URL 패턴이 /searchStudent.do인 요청을 처리하는 서블릿
 public class StudentSearchServlet extends HttpServlet {
 
-    private StudentDAO studentDAO = new StudentDAO();
+    private static final long serialVersionUID = 1L;
+    private StudentDAO studentDAO = new StudentDAO(); // 학생 데이터 액세스 객체
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 요청 파라미터에서 학생 ID를 추출
         int studentId = Integer.parseInt(request.getParameter("student_id"));
 
+        // 학생 ID로 학생 정보를 조회
         StudentVO student = studentDAO.getStudentById(studentId);
 
+        // 응답의 콘텐츠 유형과 문자 인코딩 설정
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
+        // HTML 페이지 작성
         out.println("<!DOCTYPE html>");
         out.println("<html lang='ko'>");
         out.println("<head>");
@@ -48,6 +56,7 @@ public class StudentSearchServlet extends HttpServlet {
         out.println("        <div class='container'>");
         out.println("            <h1>학생 조회</h1>");
         
+        // 학생 정보를 테이블 형식으로 출력
         if (student != null) {
             out.println("            <table>");
             out.println("                <tr><th>이름:</th><td>" + student.getName() + "</td></tr>");
@@ -56,8 +65,9 @@ public class StudentSearchServlet extends HttpServlet {
             out.println("                <tr><th>전화번호:</th><td>" + student.getPhonenumber() + "</td></tr>");
             out.println("            </table>");
         } else {
+            // 학생 정보를 찾을 수 없을 경우 메시지와 다시 조회 버튼 출력
             out.println("            <p>학생 정보를 찾을 수 없습니다.</p>");
-            out.println("            <a href='student_search.html'><button>다시조회</button><a>");
+            out.println("            <a href='student_search.html'><button>다시조회</button></a>");
         }
 
         out.println("        </div>");

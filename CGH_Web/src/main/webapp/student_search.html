@@ -9,6 +9,7 @@
 </head>
 <body>
     <header>
+        <!-- 네비게이션 메뉴: 각 페이지로 이동하는 링크 -->
         <nav>
             <ul>
                 <li><a href="student_insert.html">학생 등록</a></li>
@@ -21,10 +22,12 @@
     <main>
         <div class="container">
             <h1>학생 조회</h1>
+            <!-- 학생 학번 조회 폼 (GET 방식으로 서버에 요청) -->
             <form action="/searchStudent.do" method="get">
-                <!-- 학번: 숫자 8자리 -->
+                <!-- 학번 입력: 8자리 숫자만 허용 -->
                 <label for="student_id">학번:</label>
                 <input type="text" id="student_id" name="student_id" placeholder="예: 20195252 (8자리 숫자)" pattern="^[0-9]{8}$" title="학번은 숫자 8자리여야 합니다." required>
+                <!-- 조회 버튼 -->
                 <button type="submit">조회</button>
             </form>
         </div>

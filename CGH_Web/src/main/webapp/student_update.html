@@ -9,6 +9,7 @@
 </head>
 <body>
     <header>
+        <!-- 네비게이션 메뉴: 각 페이지로 이동하는 링크 -->
         <nav>
             <ul>
                 <li><a href="student_insert.html">학생 등록</a></li>
@@ -21,22 +22,25 @@
     <main>
         <div class="container">
             <h1>학생 정보 수정</h1>
+            <!-- 학생 정보 수정 폼 (POST 방식으로 서버에 요청) -->
             <form action="/updateStudent.do" method="post">
-                <!-- 학번: 숫자 8자리 -->
+                <!-- 학번 입력: 8자리 숫자만 허용 -->
                 <label for="student_id">학번:</label>
                 <input type="text" id="student_id" name="student_id" placeholder="예: 20195252 (8자리 숫자)" pattern="^[0-9]{8}$" title="학번은 숫자 8자리여야 합니다." required>
 
-                <!-- 학과: 한글 또는 영어 1~10자리 -->
+                <!-- 새 학과 입력: 한글 또는 영어 1~10자리 -->
                 <label for="department">새 학과:</label>
                 <input type="text" id="department" name="department" placeholder="예: 컴퓨터공학과 (한글 + 영어 1~10자)" pattern="^[가-힣a-zA-Z]{1,10}$" title="학과는 한글 + 영어 1~10자리여야 합니다." required>
                 
-                <!-- 전화번호: 숫자 12자리 -->
+                <!-- 새 전화번호 입력: 11자리 숫자만 허용 -->
                 <label for="phone">새 전화번호:</label>
                 <input type="text" id="phone" name="phone" placeholder="예: 01012345678 (11자리 숫자)" pattern="^[0-9]{11}$" title="전화번호는 숫자 11자리여야 합니다." required>
                 
+                <!-- 수정 버튼 -->
                 <button type="submit">수정</button>
             </form>
         </div>
     </main>
 </body>
+
 </html>

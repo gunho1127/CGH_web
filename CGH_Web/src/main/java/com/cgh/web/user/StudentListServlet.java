@@ -12,18 +12,25 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet("/listStudents.do")
+/**
+ * 학생 목록을 조회하고 HTML 형식으로 출력하는 서블릿
+ */
+@WebServlet("/listStudents.do") // URL 패턴이 /listStudents.do인 요청을 처리하는 서블릿
 public class StudentListServlet extends HttpServlet {
 
-    private StudentDAO studentDAO = new StudentDAO();
+    private static final long serialVersionUID = 1L;
+    private StudentDAO studentDAO = new StudentDAO(); // 학생 데이터 액세스 객체
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 데이터베이스에서 모든 학생 정보를 가져옴
         List<StudentVO> studentList = studentDAO.getAllStudents();
 
+        // 응답의 콘텐츠 유형과 문자 인코딩 설정
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
+        // HTML 페이지 작성
         out.println("<!DOCTYPE html>");
         out.println("<html lang='ko'>");
         out.println("<head>");
@@ -57,6 +64,7 @@ public class StudentListServlet extends HttpServlet {
         out.println("                </thead>");
         out.println("                <tbody>");
         
+        // 학생 목록을 테이블에 출력
         for (StudentVO student : studentList) {
             out.println("                    <tr>");
             out.println("                        <td>" + student.getStudentid() + "</td>");
