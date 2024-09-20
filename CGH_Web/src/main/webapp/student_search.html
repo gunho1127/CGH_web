@@ -22,8 +22,9 @@
         <div class="container">
             <h1>학생 조회</h1>
             <form action="/searchStudent.do" method="get">
+                <!-- 학번: 숫자 8자리 -->
                 <label for="student_id">학번:</label>
-                <input type="text" id="student_id" name="student_id" required>
+                <input type="text" id="student_id" name="student_id" placeholder="예: 20195252 (8자리 숫자)" pattern="^[0-9]{8}$" title="학번은 숫자 8자리여야 합니다." required>
                 <button type="submit">조회</button>
             </form>
         </div>

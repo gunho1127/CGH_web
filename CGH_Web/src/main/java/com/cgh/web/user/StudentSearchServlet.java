@@ -57,6 +57,7 @@ public class StudentSearchServlet extends HttpServlet {
             out.println("            </table>");
         } else {
             out.println("            <p>학생 정보를 찾을 수 없습니다.</p>");
+            out.println("            <a href='student_search.html'><button>다시조회</button><a>");
         }
 
         out.println("        </div>");

@@ -22,14 +22,17 @@
         <div class="container">
             <h1>학생 정보 수정</h1>
             <form action="/updateStudent.do" method="post">
+                <!-- 학번: 숫자 8자리 -->
                 <label for="student_id">학번:</label>
-                <input type="text" id="student_id" name="student_id" required>
-                
+                <input type="text" id="student_id" name="student_id" placeholder="예: 20195252 (8자리 숫자)" pattern="^[0-9]{8}$" title="학번은 숫자 8자리여야 합니다." required>
+
+                <!-- 학과: 한글 또는 영어 1~10자리 -->
                 <label for="department">새 학과:</label>
-                <input type="text" id="department" name="department" required>
+                <input type="text" id="department" name="department" placeholder="예: 컴퓨터공학과 (한글 + 영어 1~10자)" pattern="^[가-힣a-zA-Z]{1,10}$" title="학과는 한글 + 영어 1~10자리여야 합니다." required>
                 
+                <!-- 전화번호: 숫자 12자리 -->
                 <label for="phone">새 전화번호:</label>
-                <input type="text" id="phone" name="phone" required>
+                <input type="text" id="phone" name="phone" placeholder="예: 01012345678 (11자리 숫자)" pattern="^[0-9]{11}$" title="전화번호는 숫자 11자리여야 합니다." required>
                 
                 <button type="submit">수정</button>
             </form>
